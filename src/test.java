@@ -76,9 +76,9 @@ public class test {
 			statement.execute("INSERT INTO finance " + 
 					"VALUES ('" + Segment +"', '" + Country +"', '" +Product + "', '"+DiscountBound +"', '"+ Integer.parseInt(UnitsSold) +"', '"+ ManufacturingPrice +"', '"+ SalePrice +"', '"+ GrossPrice +"', '"+ Discounts +"', '"+ Sales +"', '"+  Cogs +"', '"+ Profit +"', '"+ Date +"', '"+ Integer.parseInt(MonthNumber) +"', '"+ MonthName+"', '"+Integer.parseInt(Year) +"');");
 			connection.commit();
+			System.out.println("Insert successful!\n");
 		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Wrong value entered (type-mismatch)! Insertion unsuccessful!\n");
 		} catch (SQLException e) {
 			try {
 				connection.rollback();
@@ -95,6 +95,7 @@ public class test {
 		try {
 			statement.execute("Delete from finance where " + condition);
 			connection.commit();
+			System.out.println("Delete successful!\n");
 		} catch (SQLException e) {
 			try {
 				connection.rollback();
@@ -127,6 +128,7 @@ public class test {
 		try {
 			statement.execute("UPDATE finance set " + value + " WHERE " + condition);
 			connection.commit();
+			System.out.println("Update successful!\n");
 		} catch (SQLException e) {
 			try {
 				connection.rollback();
